@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useFlow } from "@/kit/flow";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { useLocation as useFlowLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
@@ -17,6 +19,8 @@ const LINKS = [
 ];
 
 export function MarketingLayout() {
+  const flowLoc = useFlowLocation();
+  useFlow(flowLoc.pathname + flowLoc.hash);
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
   return (
@@ -46,7 +50,7 @@ export function MarketingLayout() {
                   <Link to="/login">Log in</Link>
                 </Button>
                 <Button asChild variant="accent" size="sm">
-                  <Link to="/register">Start free pilot</Link>
+                  <Link to="/#demo">Request a demo</Link>
                 </Button>
               </>
             )}
@@ -68,8 +72,8 @@ export function MarketingLayout() {
           </nav>
           <div className="mt-6 flex flex-col gap-2">
             <Button asChild variant="accent">
-              <Link to={user ? "/app" : "/register"} onClick={() => setOpen(false)}>
-                {user ? "Open dashboard" : "Start free pilot"}
+              <Link to={user ? "/app" : "/#demo"} onClick={() => setOpen(false)}>
+                {user ? "Open dashboard" : "Request a demo"}
               </Link>
             </Button>
             {!user && (

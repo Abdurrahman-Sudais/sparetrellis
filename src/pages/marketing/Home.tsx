@@ -1,3 +1,6 @@
+import { Cycle, Marquee, Stats, Words } from "@/kit/Flow";
+import { AwsSection, ProgressAndDemo } from "@/kit/Sections";
+import { SITE } from "@/kit/site";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -48,16 +51,17 @@ export default function Home() {
               Industrial inventory intelligence
             </div>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl">
-              Your Spare Parts Might Already Be <span className="text-amber-400">in Stock.</span>
+              <Words>Your spare parts might already be <span className="text-amber-400">in stock.</span></Words>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-steel-300">
               SpareTrellis uses AI to connect inconsistent inventory records, identify duplicate parts, and help maintenance teams find existing stock before placing new orders.
             </p>
+            <p className="mt-4 text-base text-steel-300"><Cycle lead="Built for" items={SITE.cycle} accent="text-amber-400" /></p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="accent" size="lg">
-                <Link to="/register">
-                  Start free pilot <ArrowRight />
-                </Link>
+                <a href="#demo">
+                  Request a demo <ArrowRight />
+                </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">
                 <Link to="/login">Explore the live demo</Link>
@@ -78,6 +82,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Marquee items={SITE.marquee} label={`What ${SITE.name} is built for`} />
+      <Stats items={SITE.stats} />
 
       {/* Problem */}
       <section className="border-b bg-steel-50 py-16">
@@ -214,6 +221,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AwsSection />
+
+      <ProgressAndDemo />
 
       <CtaBand />
     </>

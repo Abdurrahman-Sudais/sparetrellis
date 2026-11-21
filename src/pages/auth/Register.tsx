@@ -40,7 +40,7 @@ export default function Register() {
   };
 
   return (
-    <AuthLayout title="Start your free pilot" subtitle={<>Already have an account? <Link to="/login" className="font-medium text-amber-700 hover:underline">Log in</Link></>}>
+    <AuthLayout title="Create a demo account" subtitle={<>Already have an account? <Link to="/login" className="font-medium text-amber-700 hover:underline">Log in</Link></>}>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">

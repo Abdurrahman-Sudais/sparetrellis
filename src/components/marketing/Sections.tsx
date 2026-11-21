@@ -43,8 +43,8 @@ export function CtaBand({ title = "See what's already on your shelves.", descrip
             </div>
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="accent" size="lg">
-                <Link to="/register">
-                  Start free pilot <ArrowRight />
+                <Link to="/#demo">
+                  Request a demo <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">
