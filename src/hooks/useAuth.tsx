@@ -24,7 +24,7 @@ const AuthContext = createContext<AuthValue | null>(null);
 
 export const DEMO_USER: AuthUser = {
   name: "Adaeze Okafor",
-  email: "demo@sparetrellis.app",
+  email: "demo@sparetrellis.top",
   role: "Inventory Specialist",
   organization: "Meridian Process Industries",
 };

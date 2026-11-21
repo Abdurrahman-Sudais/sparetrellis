@@ -14,7 +14,7 @@ export type Site = {
 };
 
 export const SITE: Site = {
-  name: "SpareTrellis", email: "hello@sparetrellis.com", founder: "Damilare Akinyemi",
+  name: "SpareTrellis", email: "damilare@sparetrellis.top", founder: "Damilare Akinyemi",
   orgLabel: "Organisation type", orgTypes: ["Manufacturing plant", "Process industry", "Utilities and energy", "Mining and heavy industry", "Other"],
   useCases: ["Catalogue clean-up", "Duplicate part matching", "Stock discovery across warehouses", "Spare-part demand forecasting", "Reports", "Other"],
   topics: ["Pilot programme", "Pricing", "Technical / AWS deployment", "Data import and integrations", "Partnership", "Other"],

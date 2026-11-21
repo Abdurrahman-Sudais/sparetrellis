@@ -4,6 +4,7 @@ import { Compass, ShieldCheck, Wrench } from "lucide-react";
 const FOUNDERS = [
   { name: "Damilare Akinyemi", role: "Founder", initials: "DA", bio: "Leads SpareTrellis's product and company vision, focused on giving maintenance teams a clear picture of the stock they already own." },
   { name: "Ngozi Ekwueme", role: "Co-founder", initials: "NE", bio: "Co-leads the company, shaping how SpareTrellis works with industrial customers and how its AI stays accountable to the people who use it." },
+  { name: "Tobi Adekunle", role: "CTO", initials: "TA", bio: "Leads engineering and the AWS platform behind SpareTrellis — catalogue matching, document extraction, intermittent-demand forecasting and the audit trail behind every approval." },
 ];
 
 export default function About() {
@@ -22,7 +23,7 @@ export default function About() {
       <section className="bg-steel-50 py-20">
         <div className="container">
           <SectionHeading center eyebrow="Leadership" title="Founders" />
-          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
             {FOUNDERS.map((f) => (
               <div key={f.name} className="rounded-xl border bg-white p-7">
                 <div className="flex items-center gap-4">

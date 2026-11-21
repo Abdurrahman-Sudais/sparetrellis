@@ -10,7 +10,7 @@ export function ShotFrame({ title, children, className }: { title: string; child
         <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-        <span className="ml-3 truncate rounded bg-white px-2 py-0.5 font-mono text-[10px] text-steel-500 ring-1 ring-steel-200">app.sparetrellis.com/{title}</span>
+        <span className="ml-3 truncate rounded bg-white px-2 py-0.5 font-mono text-[10px] text-steel-500 ring-1 ring-steel-200">app.sparetrellis.top/{title}</span>
       </div>
       <div className="text-navy-900">{children}</div>
     </div>

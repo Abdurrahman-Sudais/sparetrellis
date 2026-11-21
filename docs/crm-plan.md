@@ -20,7 +20,7 @@ Both use `VITE_HUBSPOT_PORTAL_ID`. Create the custom contact properties above in
 
 ## Until HubSpot is connected
 
-Submitting opens the visitor's email app with a pre-filled message to **hello@sparetrellis.com**. Nothing is stored and no success is faked. The forms include a hidden honeypot field and a consent checkbox.
+Submitting opens the visitor's email app with a pre-filled message to **damilare@sparetrellis.top**. Nothing is stored and no success is faked. The forms include a hidden honeypot field and a consent checkbox.
 
 ## Pipeline
 

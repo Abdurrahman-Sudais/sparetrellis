@@ -4,7 +4,7 @@
 
 SpareTrellis is an AI-assisted industrial inventory intelligence platform. It connects inconsistent spare-part records, identifies likely duplicates, and helps maintenance teams find existing stock across warehouses before placing new orders.
 
-Founded by **Damilare Akinyemi** (Founder) and **Ngozi Ekwueme** (Co-founder).
+Founded by **Damilare Akinyemi** (Founder) and **Ngozi Ekwueme** (Co-founder), with **Tobi Adekunle** (CTO).
 
 ## Run it
 
@@ -53,6 +53,6 @@ Descriptors live in `services/aws/integration.ts`. Demo data is deterministic (`
 
 ## Website: lead capture, AWS section and motion
 
-- **Demo request** (home page, `#demo`) asks for company size, organisation type, primary use case and catalogue and sites; **contact** (`/contact`) has a topic picker. Both post to HubSpot when `VITE_HUBSPOT_*` is set (see `.env.example` and `docs/crm-plan.md`), otherwise they open a pre-filled email to hello@sparetrellis.com.
+- **Demo request** (home page, `#demo`) asks for company size, organisation type, primary use case and catalogue and sites; **contact** (`/contact`) has a topic picker. Both post to HubSpot when `VITE_HUBSPOT_*` is set (see `.env.example` and `docs/crm-plan.md`), otherwise they open a pre-filled email to damilare@sparetrellis.top.
 - **Planned AWS infrastructure** and **progress** sections on the home page are driven by `src/kit/site.ts`.
 - **Motion:** headings, intros and card grids fade, rise and sharpen in sequence on scroll; the hero headline enters word by word with a cycling “Built for” line, followed by a marquee band and count-up figures from the demo data (`src/kit/flow.ts`, `src/kit/Flow.tsx`). Everything is shown immediately for visitors who prefer reduced motion.
