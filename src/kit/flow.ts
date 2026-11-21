@@ -16,6 +16,15 @@ function tag(main: Element, io: IntersectionObserver, found: HTMLElement[]) {
     found.push(el);
     io.observe(el);
   };
+  const h1 = main.querySelector("h1");
+  if (h1 && !h1.querySelector(".fx-w")) {
+    let d = 0;
+    const prev = h1.previousElementSibling;
+    if (prev && (prev.textContent ?? "").trim().length < 80) { add(prev, d); d += 80; }
+    add(h1, d); d += 120;
+    let n = h1.nextElementSibling; let k = 0;
+    while (n && k < 2 && ["P", "DIV"].includes(n.tagName) && !n.querySelector("form, img")) { add(n, d); d += 100; n = n.nextElementSibling; k += 1; }
+  }
   main.querySelectorAll("section h2").forEach((h) => {
     let d = 0;
     const prev = h.previousElementSibling;
@@ -31,7 +40,12 @@ function tag(main: Element, io: IntersectionObserver, found: HTMLElement[]) {
     if (!grid) return;
     const kids = [...box.children].filter((c) => !INLINE.includes(c.tagName));
     if (kids.length < 2 || kids.some((c) => c.hasAttribute("data-fx") || c.querySelector("[data-fx], section"))) return;
-    kids.forEach((c, i) => add(c, (i % 6) * 85));
+    kids.forEach((c, i) => {
+      add(c, (i % 6) * 85);
+      const cs2 = getComputedStyle(c);
+      if (parseFloat(cs2.borderTopWidth) > 0 && parseFloat(cs2.borderTopLeftRadius) > 0 && !c.querySelector("a, button")) c.setAttribute("data-fx-card", "");
+      else if (parseFloat(cs2.borderTopWidth) > 0 && parseFloat(cs2.borderTopLeftRadius) > 0) c.setAttribute("data-fx-card", "");
+    });
   });
 }
 
@@ -65,11 +79,19 @@ export function useFlow(key: string) {
     const sweep = () => { raf = 0; found.forEach((el) => { if (el.getAttribute("data-fx") === "wait" && el.getBoundingClientRect().top < window.innerHeight) { show(el); io.unobserve(el); } }); };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(sweep); };
     window.addEventListener("scroll", onScroll, { passive: true });
+    const spot = (e: PointerEvent) => {
+      const card = (e.target as Element | null)?.closest?.("[data-fx-card]") as HTMLElement | null;
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    };
+    window.addEventListener("pointermove", spot, { passive: true });
     tag(main, io, found);
     const late = window.setTimeout(sweep, 350);
     return () => {
       io.disconnect(); mo.disconnect(); window.clearTimeout(stopMo); window.clearTimeout(late); window.clearTimeout(pending);
-      window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll); window.removeEventListener("pointermove", spot); cancelAnimationFrame(raf);
       found.forEach((el) => el.setAttribute("data-fx", "done"));
     };
   }, [key]);
